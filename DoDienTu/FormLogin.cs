@@ -26,28 +26,6 @@ namespace DoDienTu
 
         }
 
-        static string salt = "AQWSDRW";
-        public static string SaltedHash(string password)
-        {
-            return Hash(Hash(password) + salt);
-        }
-        public static string Hash(string input)
-        {
-            using (SHA1Managed sha1 = new SHA1Managed())
-            {
-                var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(input));
-                var sb = new StringBuilder(hash.Length * 2);
-
-                foreach (byte b in hash)
-                {
-                    // can be "x2" if you want lowercase
-                    sb.Append(b.ToString("X2"));
-                }
-
-                return sb.ToString();
-            }
-        }
-
         private void FormLogin_Load(object sender, EventArgs e)
         {
 
@@ -55,7 +33,7 @@ namespace DoDienTu
 
         private void btnLg_Click(object sender, EventArgs e)
         {
-            string hashed = SaltedHash(txtPass.Text);
+            string hashed = Util.SaltedHash(txtPass.Text);
             //MessageBox.Show(hashed+" "+ txtUser.Text);
             List<Dictionary<string, string>> rows = dm.FetchAllRowUr();
             foreach (Dictionary<string, string> row in rows)
@@ -81,9 +59,15 @@ namespace DoDienTu
                         }
                     }
                     else
-                        MessageBox.Show("Mật khẩu không chính xác");
+                        MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác");
                 }
             }
+        }
+
+        private void btnForgorPassword_Click(object sender, EventArgs e)
+        {
+            FormForgotPassword fh = new FormForgotPassword();
+            fh.ShowDialog();
         }
     }
 }
