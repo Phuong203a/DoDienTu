@@ -178,6 +178,30 @@ namespace DoDienTu
             }
             return MaNV;
          }
+        public string getName(string email)
+        {
+            string sqlQuery = "select* from DangNhap,NhanVien where NhanVien.MaNV = DangNhap.MaNV and NhanVien.Email=@email";
+            SqlCommand comm = new SqlCommand(sqlQuery, this.conn);
+            String name = "";
+            try
+            {
+                comm.Connection = conn;
+                comm.CommandText = sqlQuery;
+                comm.Parameters.AddWithValue("@email", email);
+                SqlDataReader reader = comm.ExecuteReader();
+                while (reader.Read())
+                {
+                    name = reader["TenDangNhap"].ToString();
+                    break;
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return name;
+        }
 
         public bool AddNewRow(string tid, string name, string shift, string fd, string dob, string ht, string branch, string phone, string email, string status, byte[] img)
         {

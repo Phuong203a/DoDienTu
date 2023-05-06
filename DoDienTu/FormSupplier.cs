@@ -216,5 +216,13 @@ namespace DoDienTu
             }
             dgv1.AllowUserToAddRows = true;
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormHome fh = new FormHome();
+            fh.ShowDialog();
+            
+        }
     }
 }

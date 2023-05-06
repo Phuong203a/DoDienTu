@@ -45,16 +45,17 @@ namespace DoDienTu
                         MessageBox.Show("Đăng nhập thành công");
                         if(row["PhanQuyen"] == "admin")
                         {
+                            this.Hide();
                             FormHome fh = new FormHome();
-                            fh.ShowDialog();
-                            this.Close();
+                            fh.ShowDialog();                    
                             break;
                         }
                         else
                         {
+                            this.Hide();
                             FormPurchase fp = new FormPurchase();
                             fp.ShowDialog();
-                            this.Close();
+                           
                             break;
                         }
                     }
@@ -86,6 +87,11 @@ namespace DoDienTu
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
