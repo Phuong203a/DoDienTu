@@ -15,10 +15,11 @@ namespace DoDienTu
         public DataModel()
         {
             builder = new System.Data.SqlClient.SqlConnectionStringBuilder();
-            builder["Data Source"] = "HUYNH\\SQLEXPRESS";
+            builder["Data Source"] = "MYDELL\\SQLEXPRESS";
             builder["integrated Security"] = true;
             builder["Initial Catalog"] = "QLCHDT";
-            builder.UserID = "HUYNH\\huynhcuong";
+            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            builder.UserID = userName;
             builder["Password"] = "";
             conn = new SqlConnection(builder.ConnectionString);
             conn.Open();
@@ -92,6 +93,71 @@ namespace DoDienTu
                 }
             }
         }
+
+        public bool checkIfUserExist(string email)
+        {
+            string addCmd = "Select COUNT(*) from NhanVien where Email = @val1";
+            using (SqlCommand comm = new SqlCommand())
+            {
+                comm.Connection = conn;
+                comm.CommandText = addCmd;
+                comm.Parameters.AddWithValue("@val1", email);
+                try
+                {
+                    int count = (int)comm.ExecuteScalar();
+                    return count>0;
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine(e.ToString());
+                    return false;
+                }
+            }
+        }
+        public bool updatePassword(int maNV,String hashPassword)
+        {
+            string addCmd = "Update DangNhap set MatKhau = @val2 WHERE MaNV = @val1";
+            using (SqlCommand comm = new SqlCommand())
+            {
+                comm.Connection = conn;
+                comm.CommandText = addCmd;
+                comm.Parameters.AddWithValue("@val1", maNV);
+                comm.Parameters.AddWithValue("@val2", hashPassword);
+                try
+                {
+                    comm.ExecuteNonQuery();
+                    return true;
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine(e.ToString());
+                    return false;
+                }
+            }
+        }
+        public int getMaNhanVien(string email)
+        {
+            string sqlQuery = "Select MaNV from NhanVien where Email = @val1";
+            SqlCommand comm = new SqlCommand(sqlQuery, this.conn);
+            int MaNV = 0;
+            try
+            {
+                 comm.Connection = conn;
+                comm.CommandText = sqlQuery;
+                comm.Parameters.AddWithValue("@val1", email);
+                SqlDataReader reader = comm.ExecuteReader();
+                while (reader.Read())
+                {
+                    MaNV = Int32.Parse(reader["MaNV"].ToString());
+                    break;
+                }
+                reader.Close();
+            }
+            catch (Exception ex){
+                Console.WriteLine(ex.ToString());
+            }
+            return MaNV;
+         }
 
         public bool AddNewRow(string tid, string name, string shift, string fd, string dob, string ht, string branch, string phone, string email, string status, byte[] img)
         {
