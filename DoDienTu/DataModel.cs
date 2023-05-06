@@ -72,7 +72,7 @@ namespace DoDienTu
         {
             string sqlQuery = "Select Avatar from NhanVien where MaNv = @val1";
             // int result = command.ExecuteNonQuery();
-            byte[] ava;
+            byte[] ava = null;
             using (SqlCommand comm = new SqlCommand())
             {
                 comm.Connection = conn;
@@ -81,16 +81,20 @@ namespace DoDienTu
                 try
                 {
                     SqlDataReader reader = comm.ExecuteReader();
-                    reader.Read();
-                    ava = (byte[])reader["Avatar"];
-                    reader.Close();
-                    return ava;
+                    while (reader.Read())
+                    {
+                        ava = reader["Avatar"] == null ? null : (byte[])reader["Avatar"];
+                        reader.Close();
+                        
+                    }
+
                 }
                 catch (SqlException e)
                 {
                     Console.WriteLine(e.ToString());
                     return null;
                 }
+                return ava;
             }
         }
 
