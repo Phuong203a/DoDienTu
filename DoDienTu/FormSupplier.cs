@@ -32,6 +32,7 @@ namespace DoDienTu
         public void ResetForm()
         {
             dgv1.Rows.Clear();
+            dm = new DataModel();
         }
 
         private void FormSupplier_Load(object sender, EventArgs e)
