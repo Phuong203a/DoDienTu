@@ -121,6 +121,13 @@ namespace DoDienTu
             Match match = regex.Match(email);
             if (match.Success)
             {
+                bool isExist = dm.checkIfUserExist(email);
+                if (isExist)
+                {
+                    MessageBox.Show("Email đã tồn tại");
+                    return;
+
+                }
                 if (!dm.AddNewRow(txtType.Text, txtStaff.Text, txtShift.Text, dtpFd.Value.ToString(), dtpDob.Value.ToString(), txtHt.Text, txtBranch.Text, txtPhone.Text, txtEmail.Text, txtStatus.Text, arr))
                 {
                     MessageBox.Show("Failed");
@@ -271,6 +278,13 @@ namespace DoDienTu
             Match match = regex.Match(email);
             if (match.Success)
             {
+                bool isExist = dm.checkIfUserExist(email);
+                if (isExist)
+                {
+                    MessageBox.Show("Email đã tồn tại");
+                    return;
+
+                }
                 if (!dm.UpdateRow(dgv1.Rows[dgv1.CurrentCell.RowIndex].Cells[0].Value.ToString(), txtType.Text, txtStaff.Text, txtShift.Text, dtpFd.Value.ToString(), dtpDob.Value.ToString(), txtHt.Text, txtBranch.Text, txtPhone.Text, txtEmail.Text, txtStatus.Text, arr))
                 {
                     MessageBox.Show("Failed");

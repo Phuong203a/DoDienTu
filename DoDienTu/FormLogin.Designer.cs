@@ -53,6 +53,7 @@
             // txtUser
             // 
             this.txtUser.BackColor = System.Drawing.Color.White;
+            this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.Location = new System.Drawing.Point(41, 141);
             this.txtUser.Multiline = true;
             this.txtUser.Name = "txtUser";
@@ -86,6 +87,7 @@
             // txtPass
             // 
             this.txtPass.BackColor = System.Drawing.Color.White;
+            this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.Location = new System.Drawing.Point(41, 258);
             this.txtPass.Multiline = true;
             this.txtPass.Name = "txtPass";

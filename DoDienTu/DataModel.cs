@@ -84,10 +84,8 @@ namespace DoDienTu
                     while (reader.Read())
                     {
                         ava = reader["Avatar"] == null ? null : (byte[])reader["Avatar"];
-                        reader.Close();
-                        
                     }
-
+                    reader.Close();
                 }
                 catch (SqlException e)
                 {
@@ -702,6 +700,38 @@ namespace DoDienTu
                     return false;
                 }
             }
+        }
+
+        public List<Dictionary<string, string>> FetchRowSt()
+        {
+            List<Dictionary<string, string>> rows = new List<Dictionary<string, string>>();
+            Dictionary<string, string> column;
+            string sqlQuery = "SELECT top(1) TongDoanhThu,ChiPhi FROM BaoCaoThongKe ORDER BY ThoiGianLap desc;";
+
+            SqlCommand command = new SqlCommand(sqlQuery, this.conn);
+
+            try
+            {
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {    //Every new row will create a new dictionary that holds the columns
+                    column = new Dictionary<string, string>();
+
+                    column["TongDoanhThu"] = reader["TongDoanhThu"].ToString();
+                    column["ChiPhi"] = reader["ChiPhi"].ToString();
+                    rows.Add(column); //Place the dictionary into the list
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //If an exception occurs, write it to the console
+                Console.WriteLine(ex.ToString());
+            }
+
+            return rows;
+
         }
 
     }
