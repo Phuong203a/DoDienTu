@@ -14,13 +14,21 @@ namespace DoDienTu
         SqlConnection conn;
         public DataModel()
         {
+            //builder = new System.Data.SqlClient.SqlConnectionStringBuilder();
+            //builder["Data Source"] = "PHUONGDAM\\SQLEXPRESS";
+            //builder["integrated Security"] = true;
+            //builder["Initial Catalog"] = "QLCHDT";
+            //string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            //builder.UserID = userName;
+            //builder["Password"] = "";
+            //conn = new SqlConnection(builder.ConnectionString);
+            //conn.Open();
             builder = new System.Data.SqlClient.SqlConnectionStringBuilder();
-            builder["Data Source"] = "PHUONGDAM\\SQLEXPRESS";
-            builder["integrated Security"] = true;
+            builder["Data Source"] = "171.244.61.127\\SQLEXPRESS,1433";
+            builder["integrated Security"] = false;
             builder["Initial Catalog"] = "QLCHDT";
-            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            builder.UserID = userName;
-            builder["Password"] = "";
+            builder.UserID = "phuongdam";
+            builder["Password"] = "Phuong@14092003";
             conn = new SqlConnection(builder.ConnectionString);
             conn.Open();
         }
@@ -83,7 +91,13 @@ namespace DoDienTu
                     SqlDataReader reader = comm.ExecuteReader();
                     while (reader.Read())
                     {
-                        ava = reader["Avatar"] == null ? null : (byte[])reader["Avatar"];
+                        if (reader["Avatar"] != DBNull.Value)
+                        {
+                            ava = (byte[])reader["Avatar"];
+                        }
+                        else ava = null;
+
+
                     }
                     reader.Close();
                 }

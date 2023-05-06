@@ -249,9 +249,18 @@ namespace DoDienTu
             txtStatus.Text = dgv1.Rows[e.RowIndex].Cells[10].Value.ToString();
 
             Byte[] data = new Byte[0];
-            data = dm.loadImg(dgv1.Rows[e.RowIndex].Cells[0].Value.ToString());      
-            MemoryStream ms = new MemoryStream(data);
-            pbAva.Image = Image.FromStream(ms);
+            data = dm.loadImg(dgv1.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+            if (data != null)
+            {
+                MemoryStream ms = new MemoryStream(data);
+                pbAva.Image = Image.FromStream(ms);
+
+            }
+        ;
+           
+            
+           
             txtType.Enabled = false;
         }
 
@@ -276,16 +285,20 @@ namespace DoDienTu
             string email = txtEmail.Text;
             Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
             Match match = regex.Match(email);
+            string datePd = dtpFd.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            string dob = dtpDob.Value.ToString("yyyy-MM-dd HH:mm:ss");
             if (match.Success)
             {
                 bool isExist = dm.checkIfUserExist(email);
-                if (isExist)
+                if (isExist && !txtEmail.Text.Equals(email))
                 {
                     MessageBox.Show("Email đã tồn tại");
                     return;
 
                 }
-                if (!dm.UpdateRow(dgv1.Rows[dgv1.CurrentCell.RowIndex].Cells[0].Value.ToString(), txtType.Text, txtStaff.Text, txtShift.Text, dtpFd.Value.ToString(), dtpDob.Value.ToString(), txtHt.Text, txtBranch.Text, txtPhone.Text, txtEmail.Text, txtStatus.Text, arr))
+                if (!dm.UpdateRow(dgv1.Rows[dgv1.CurrentCell.RowIndex].Cells[0].Value.ToString(),
+                    txtType.Text, txtStaff.Text, txtShift.Text, datePd, dob,
+                    txtHt.Text, txtBranch.Text, txtPhone.Text, txtEmail.Text, txtStatus.Text, arr))
                 {
                     MessageBox.Show("Failed");
                 }
