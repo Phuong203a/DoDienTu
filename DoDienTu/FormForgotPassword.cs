@@ -28,10 +28,15 @@ namespace DoDienTu
                 MessageBox.Show("Email không tồn tại.");
                 return;
             }
+            bool isExistednv = dataModel.checkIfNvExistInDangNhap(email);
+            if (!isExistednv)
+            {
+                MessageBox.Show("Nhân viên chưa được đăng kí tài khoản.");
+                return;
+            }
             currentEmail = email;
             sendEmailCode(email);
         }
-
         private void btnCheckCode_Click(object sender, EventArgs e)
         {
             String code = txtCode.Text.Trim();
