@@ -127,5 +127,14 @@ namespace DoDienTu
             txtRepassword.Enabled = false;
             btnChangePassword.Enabled = false;
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+    
+            FormLogin fh = new FormLogin();
+                fh.ShowDialog();
+                this.Close()FormForgotPassword; 
+         
+        }
     }
 }

@@ -50,5 +50,24 @@ namespace DoDienTu
         {
 
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            FormLogin fh = new FormLogin();
+            fh.ShowDialog();
+            this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            FormLogin fh = new FormLogin();
+            fh.ShowDialog();
+            this.Close();
+        }
     }
 }

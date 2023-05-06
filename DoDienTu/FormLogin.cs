@@ -58,9 +58,12 @@ namespace DoDienTu
                             break;
                         }
                     }
-                    else
-                        MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác");
+                    else MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác");
+                    return;
                 }
+                else MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác");
+                return;
+
             }
         }
 
@@ -68,6 +71,21 @@ namespace DoDienTu
         {
             FormForgotPassword fh = new FormForgotPassword();
             fh.ShowDialog();
+        }
+
+        private void txtPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
