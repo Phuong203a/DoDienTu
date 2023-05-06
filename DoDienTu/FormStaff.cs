@@ -304,5 +304,13 @@ namespace DoDienTu
         {
             InitializeForm();
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormHome fh = new FormHome();
+            fh.ShowDialog();
+            
+        }
     }
 }

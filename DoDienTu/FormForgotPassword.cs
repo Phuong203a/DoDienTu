@@ -34,7 +34,12 @@ namespace DoDienTu
                 MessageBox.Show("Nhân viên chưa được đăng kí tài khoản.");
                 return;
             }
+
             currentEmail = email;
+            //hien thi ten user 
+
+            MessageBox.Show("Tên người đăng nhập là:" +dataModel.getName(email));
+           
             sendEmailCode(email);
         }
         private void btnCheckCode_Click(object sender, EventArgs e)
@@ -126,6 +131,15 @@ namespace DoDienTu
             txtPassword.Enabled = false;
             txtRepassword.Enabled = false;
             btnChangePassword.Enabled = false;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormLogin fh = new FormLogin();
+                fh.ShowDialog();
+                
+         
         }
     }
 }
