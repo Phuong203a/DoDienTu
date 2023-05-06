@@ -15,7 +15,7 @@ namespace DoDienTu
         public DataModel()
         {
             builder = new System.Data.SqlClient.SqlConnectionStringBuilder();
-            builder["Data Source"] = "HUYNH\\SQLEXPRESS";
+            builder["Data Source"] = "PHUONGDAM\\SQLEXPRESS";
             builder["integrated Security"] = true;
             builder["Initial Catalog"] = "QLCHDT";
             string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
@@ -72,7 +72,7 @@ namespace DoDienTu
         {
             string sqlQuery = "Select Avatar from NhanVien where MaNv = @val1";
             // int result = command.ExecuteNonQuery();
-            byte[] ava;
+            byte[] ava = null;
             using (SqlCommand comm = new SqlCommand())
             {
                 comm.Connection = conn;
@@ -81,16 +81,18 @@ namespace DoDienTu
                 try
                 {
                     SqlDataReader reader = comm.ExecuteReader();
-                    reader.Read();
-                    ava = (byte[])reader["Avatar"];
+                    while (reader.Read())
+                    {
+                        ava = reader["Avatar"] == null ? null : (byte[])reader["Avatar"];
+                    }
                     reader.Close();
-                    return ava;
                 }
                 catch (SqlException e)
                 {
                     Console.WriteLine(e.ToString());
                     return null;
                 }
+                return ava;
             }
         }
 
