@@ -24,11 +24,11 @@ namespace DoDienTu
             //conn = new SqlConnection(builder.ConnectionString);
             //conn.Open();
             builder = new System.Data.SqlClient.SqlConnectionStringBuilder();
-            builder["Data Source"] = "171.244.61.127\\SQLEXPRESS,1433";
+            builder["Data Source"] = "171.244.61.127";
             builder["integrated Security"] = false;
             builder["Initial Catalog"] = "QLCHDT";
-            builder.UserID = "phuongdam";
-            builder["Password"] = "Phuong@14092003";
+            builder.UserID = "sa";
+            builder["Password"] = "Nguyen292003.";
             conn = new SqlConnection(builder.ConnectionString);
             conn.Open();
         }

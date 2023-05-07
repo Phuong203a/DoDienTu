@@ -71,7 +71,6 @@ namespace DoDienTu
             txtStatus.Enabled = false;
             btnUpload.Enabled = false;
             btnSave.Enabled = false;
-            txtPrint.Enabled = false;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -322,10 +321,6 @@ namespace DoDienTu
             }
         }
 
-        private void txtPrint_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void FormStaff_Load(object sender, EventArgs e)
         {

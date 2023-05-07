@@ -44,7 +44,6 @@
             this.TinhTrangNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.txtPrint = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnUdt = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -172,7 +171,6 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(225)))), ((int)(((byte)(251)))));
             this.groupBox1.Controls.Add(this.pictureBox2);
-            this.groupBox1.Controls.Add(this.txtPrint);
             this.groupBox1.Controls.Add(this.btnDel);
             this.groupBox1.Controls.Add(this.btnUdt);
             this.groupBox1.Controls.Add(this.btnSave);
@@ -219,23 +217,11 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // txtPrint
-            // 
-            this.txtPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.txtPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrint.Location = new System.Drawing.Point(1267, 321);
-            this.txtPrint.Name = "txtPrint";
-            this.txtPrint.Size = new System.Drawing.Size(75, 37);
-            this.txtPrint.TabIndex = 8;
-            this.txtPrint.Text = "Print";
-            this.txtPrint.UseVisualStyleBackColor = false;
-            this.txtPrint.Click += new System.EventHandler(this.txtPrint_Click);
-            // 
             // btnDel
             // 
             this.btnDel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDel.Location = new System.Drawing.Point(195, 321);
+            this.btnDel.Location = new System.Drawing.Point(213, 321);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(75, 37);
             this.btnDel.TabIndex = 3;
@@ -247,7 +233,7 @@
             // 
             this.btnUdt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnUdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUdt.Location = new System.Drawing.Point(437, 321);
+            this.btnUdt.Location = new System.Drawing.Point(551, 321);
             this.btnUdt.Name = "btnUdt";
             this.btnUdt.Size = new System.Drawing.Size(75, 37);
             this.btnUdt.TabIndex = 4;
@@ -259,7 +245,7 @@
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(702, 321);
+            this.btnSave.Location = new System.Drawing.Point(882, 321);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 37);
             this.btnSave.TabIndex = 5;
@@ -271,7 +257,7 @@
             // 
             this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(996, 321);
+            this.btnExit.Location = new System.Drawing.Point(1200, 321);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 37);
             this.btnExit.TabIndex = 6;
@@ -565,7 +551,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn QueQuan;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn TinhTrangNV;
-        private System.Windows.Forms.Button txtPrint;
         private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
