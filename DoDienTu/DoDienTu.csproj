@@ -83,6 +83,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataModel.cs" />
+    <Compile Include="Features.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features.Designer.cs">
+      <DependentUpon>Features.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormForgotPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,7 +145,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="schedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="schedule.Designer.cs">
+      <DependentUpon>schedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StyleCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StyleCar.Designer.cs">
+      <DependentUpon>StyleCar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util.cs" />
+    <EmbeddedResource Include="Features.resx">
+      <DependentUpon>Features.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormForgotPassword.resx">
       <DependentUpon>FormForgotPassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,6 +198,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="schedule.resx">
+      <DependentUpon>schedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleCar.resx">
+      <DependentUpon>StyleCar.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DoDienTu_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

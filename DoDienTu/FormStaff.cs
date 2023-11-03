@@ -334,5 +334,10 @@ namespace DoDienTu
             fh.ShowDialog();
             
         }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

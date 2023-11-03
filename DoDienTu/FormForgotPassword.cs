@@ -141,5 +141,25 @@ namespace DoDienTu
                 
          
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtRepassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
